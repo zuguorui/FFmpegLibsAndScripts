@@ -1,0 +1,14 @@
+prefix=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7
+exec_prefix=${prefix}
+libdir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7/lib
+includedir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 58.53.101
+Requires: libavutil >= 56.30.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -pthread -liconv -lm -framework VideoToolbox -framework CoreFoundation -framework CoreMedia -framework CoreVideo
+Libs.private: 
+Cflags: -I${includedir}

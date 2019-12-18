@@ -1,0 +1,14 @@
+prefix=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/arm64
+exec_prefix=${prefix}
+libdir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/arm64/lib
+includedir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/arm64/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 58.28.101
+Requires: libavcodec >= 58.53.101, libavutil >= 56.30.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lm -lz
+Libs.private: 
+Cflags: -I${includedir}

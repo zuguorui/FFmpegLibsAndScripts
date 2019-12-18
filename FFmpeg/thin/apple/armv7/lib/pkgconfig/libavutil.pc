@@ -1,0 +1,14 @@
+prefix=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7
+exec_prefix=${prefix}
+libdir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7/lib
+includedir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/apple/armv7/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 56.30.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -pthread -lm -framework VideoToolbox -framework CoreFoundation -framework CoreMedia -framework CoreVideo
+Libs.private: 
+Cflags: -I${includedir}
