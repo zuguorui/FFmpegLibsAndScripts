@@ -6,9 +6,9 @@ includedir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/android/armv7-a/include
 Name: libswscale
 Description: FFmpeg image rescaling library
 Version: 5.4.101
-Requires: libavutil >= 56.30.100
-Requires.private: 
+Requires: 
+Requires.private: libavutil >= 56.30.100
 Conflicts:
-Libs: -L${libdir}  -lswscale -lm
-Libs.private: 
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm
 Cflags: -I${includedir}

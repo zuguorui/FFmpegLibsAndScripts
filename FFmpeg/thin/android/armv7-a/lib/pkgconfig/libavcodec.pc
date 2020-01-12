@@ -6,9 +6,9 @@ includedir=/Users/zu/work_space/FFmpeg/FFmpeg/thin/android/armv7-a/include
 Name: libavcodec
 Description: FFmpeg codec library
 Version: 58.53.101
-Requires: libavutil >= 56.30.100
-Requires.private: 
+Requires: 
+Requires.private: libavutil >= 56.30.100
 Conflicts:
-Libs: -L${libdir}  -lavcodec -pthread -lm
-Libs.private: 
+Libs: -L${libdir}  -lavcodec 
+Libs.private: -pthread -lm
 Cflags: -I${includedir}

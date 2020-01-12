@@ -6,6 +6,6 @@ includedir=${prefix}/include
 Name: Fraunhofer FDK AAC Codec Library
 Description: AAC codec library
 Version: 2.0.0
-Libs: -L${libdir} -lfdk-aac -lm 
-Libs.private: 
+Libs: -L${libdir} -lfdk-aac 
+Libs.private: -lm 
 Cflags: -I${includedir}

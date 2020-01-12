@@ -14,7 +14,9 @@ TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/$HOST_TAG
 
 ANDROID_LIB_PATH="$(pwd)/thin/android"
 
-API=29
+SYSROOT=$NDK/toolchains/llvm/prebuilt/$HOST_TAG/sysroot
+
+API=26
 
 function build_android_arm
 {
@@ -28,13 +30,13 @@ echo "Compiling FFmpeg for $CPU"
 --disable-devices \
 --disable-indevs \
 --disable-outdevs \
---disable-debug \
---disable-x86asm \
+--disable-asm \
 --disable-doc \
 --enable-gpl \
 --enable-nonfree \
 --enable-version3 \
---enable-static \
+--disable-static \
+--enable-shared \
 --enable-small \
 --enable-dct \
 --enable-dwt \
@@ -50,27 +52,29 @@ echo "Compiling FFmpeg for $CPU"
 --disable-encoders \
 --enable-encoder=pcm_s16le \
 --enable-encoder=aac \
---enable-encoder=libvo_aacenc \
 --disable-decoders \
 --enable-decoder=aac \
 --enable-decoder=mp3 \
 --enable-decoder=pcm_s16le \
 --disable-parsers \
 --enable-parser=aac \
+--enable-parser=mpegaudio \
 --disable-muxers \
 --enable-muxer=flv \
 --enable-muxer=wav \
 --enable-muxer=adts \
+--enable-muxer=mp3 \
 --disable-demuxers \
 --enable-demuxer=flv \
 --enable-demuxer=wav \
 --enable-demuxer=aac \
+--enable-demuxer=mp3 \
 --disable-protocols \
 --enable-protocol=rtmp \
 --enable-protocol=file \
+--disable-runtime-cpudetect \
 --enable-libx264 \
 --enable-libfdk-aac \
---disable-iconv \
 --prefix="$PREFIX" \
 --cross-prefix="$CROSS_PREFIX" \
 --target-os=android \
@@ -93,7 +97,6 @@ ARCH=arm64
 CPU=armv8-a
 CC=$TOOLCHAIN/bin/aarch64-linux-android$API-clang
 CXX=$TOOLCHAIN/bin/aarch64-linux-android$API-clang++
-SYSROOT=$NDK/toolchains/llvm/prebuilt/$HOST_TAG/sysroot
 CROSS_PREFIX=$TOOLCHAIN/bin/aarch64-linux-android-
 PREFIX=$ANDROID_LIB_PATH/$CPU
 OPTIMIZE_CFLAGS="-march=$CPU -Iexternal-lib/lame/include -Iexternal-lib/fdk-aac/include -Iexternal-lib/x264/include"
@@ -104,7 +107,6 @@ ARCH=arm
 CPU=armv7-a
 CC=$TOOLCHAIN/bin/armv7a-linux-androideabi$API-clang
 CXX=$TOOLCHAIN/bin/armv7a-linux-androideabi$API-clang++
-SYSROOT=$NDK/toolchains/llvm/prebuilt/$HOST_TAG/sysroot
 CROSS_PREFIX=$TOOLCHAIN/bin/arm-linux-androideabi-
 PREFIX=$ANDROID_LIB_PATH/$CPU
 OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=vfp -marm -march=$CPU -Iexternal-lib/lame/include -Iexternal-lib/fdk-aac/include -Iexternal-lib/x264/include"

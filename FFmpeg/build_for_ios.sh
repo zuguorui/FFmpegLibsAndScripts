@@ -109,8 +109,8 @@ FAT_LIBS="$IOS_LIB_PATH/fatLibs"
 rm -r $FAT_LIBS
 mkdir $FAT_LIBS
 
-for LIB in `ls $ARMv7_PATH/lib | grep .a`
+for LIB in `ls $ARMv7_PATH/lib | grep \\.a`
 do
     echo "merge $LIB..."
-    lipo -create `find $ARMv7_PATH -name $LIB` -output $FAT_LIBS/$LIB
+    lipo -create `find $IOS_LIB_PATH -name $LIB` -output $FAT_LIBS/$LIB
 done

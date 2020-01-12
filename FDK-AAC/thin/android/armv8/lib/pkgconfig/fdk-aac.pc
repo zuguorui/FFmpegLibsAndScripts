@@ -1,0 +1,11 @@
+prefix=/Users/zu/work_space/FDK_AAC/fdk-aac-2.0.0/thin/android/armv8
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Fraunhofer FDK AAC Codec Library
+Description: AAC codec library
+Version: 2.0.0
+Libs: -L${libdir} -lfdk-aac 
+Libs.private: -lm 
+Cflags: -I${includedir}
